@@ -1,7 +1,24 @@
 'use strict';
 
+var Album = require('../../models/album');
+
 module.exports = {
+  payload:{
+    maxBytes: 16777216,
+    output:'stream',
+    parse: true,
+    timeout: 60000
+  },
   handler: function(request, reply) {
-    reply.view('templates/albums/index');
+
+    var photos = [].concat(request.payload.photos);
+    delete request.payload.photos;
+    var  album = new Album(request.payload);
+
+    album.upload(photos, function(){
+      album.save(function(){
+      reply();
+    });
+  });
   }
 };

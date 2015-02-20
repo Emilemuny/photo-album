@@ -1,2 +1,1 @@
-# Album Photo
 # photo-album

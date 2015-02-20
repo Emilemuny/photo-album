@@ -1,7 +1,7 @@
 {
-  "name": "hapi-prototype",
-  "description": "Hapi Prototype Application",
-  "homepage": "https://github.com/coding-house-jan2015/hapi-prototype",
+  "name": "photo-album",
+  "description": "Photo Album",
+  "homepage": "https://github.com/emilemuny/photo-album.git",
   "engines": {
     "node": "0.12.x"
   },
@@ -15,10 +15,10 @@
     "mongo",
     "mongoose"
   ],
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Emile Munyangabe <emilemuny007@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coding-house-jan2015/hapi-prototype.git"
+    "url": "https://github.com/emilemuny/photo-album.git"
   },
   "version": "1.0.0",
   "scripts": {
@@ -29,6 +29,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "async": "^0.9.0",
+    "aws-sdk": "^2.1.13",
     "good": "^5.1.1",
     "good-console": "^4.1.0",
     "hapi": "^8.2.0",
