@@ -17,20 +17,20 @@ albumSchema.methods.upload = function(photos, cb) {
   async.each(photos, uploadIterator.bind(this), cb);
 };
 
-function uploadIterator(photo, cb) {
-
+function uploadIterator(photo, icb) {
+  console.log(photo);
   var s3 = new AWS.S3();
   var file = photo.hapi.filename;
   var ext = path.extname(file);
   var base = path.basename(file, ext);
   base = _.kebabCase(base);
   ext = ext.toLowerCase();
-  file= base + ext;
+  file= this._id + '/' + base + ext;
   var url = 'https:/s3.amazonaws.com/' + process.env.AWS_BUCKET + '/' + file;
 
   this.photos.push(url);
   var params = {Bucket: process.env.AWS_BUCKET, Key: file, Body: photo._data, ACL: 'public-read'};
-  s3.putObject(params, cb);
+  s3.putObject(params, icb);
 }
 
 module.exports = mongoose.model('Album', albumSchema);

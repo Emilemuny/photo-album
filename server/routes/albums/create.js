@@ -15,10 +15,10 @@ module.exports = {
     delete request.payload.photos;
     var  album = new Album(request.payload);
 
-    album.upload(photos, function(){
-      album.save(function(){
-      reply();
+    album.upload(photos, function() {
+      album.save(function() {
+        reply.redirect('/albums/' + album._id);
+      });
     });
-  });
   }
 };
